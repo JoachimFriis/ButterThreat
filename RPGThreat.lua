@@ -56,7 +56,9 @@ local lastEmoteTime = 0
 local lastAudioTime = 0
 
 -- Vignette frames
+---@type Frame?
 local vignetteFrame = nil
+---@type Texture?
 local vignetteTexture = nil
 
 -- Threat tier names for clarity
@@ -137,11 +139,11 @@ local function UpdateVignette(state)
     elseif state == 1 then
         -- Tension: Orange border vignette
         vignetteFrame:Show()
-        vignetteTexture:SetTexture(1, 0.5, 0, 0.3) -- Orange with alpha
+        vignetteTexture:SetColorTexture(1, 0.5, 0, 0.3) -- Orange with alpha
     elseif state == 2 or state == 3 then
         -- Losing Control / Aggro: Heavy red vignette
         vignetteFrame:Show()
-        vignetteTexture:SetTexture(1, 0, 0, 0.5) -- Red with alpha
+        vignetteTexture:SetColorTexture(1, 0, 0, 0.5) -- Red with alpha
     end
 end
 
